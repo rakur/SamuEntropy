@@ -73,17 +73,7 @@ public class SplashActivity extends android.app.Activity {
     @Override
     public void onCreate(android.os.Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.splash);
-
-        android.widget.ImageView iv = (android.widget.ImageView) findViewById(R.id.neuronanimation);
-
-        iv.setBackgroundResource(R.drawable.neuron_animation);
-
-        final android.graphics.drawable.AnimationDrawable anim = (android.graphics.drawable.AnimationDrawable) iv.getBackground();
-
-        splash = new Splash(anim, this);
-        runOnUiThread(splash);
-
+        setContentView(R.layout.menu);
     }
 
     @Override
