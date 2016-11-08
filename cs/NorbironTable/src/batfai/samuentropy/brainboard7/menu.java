@@ -124,12 +124,14 @@ public class menu extends android.view.SurfaceView implements Runnable {
         if (event.getAction() == android.view.MotionEvent.ACTION_DOWN) {
 
             if (x>width/2-100 && x <width/2+100 && y>height/2 && y<height/2+100 && settings.getBoolean("load", false)) {
+                NeuronGameActivity.restore=false;
                 load=true;
                 android.content.Intent i = new android.content.Intent(context, NeuronGameActivity.class);
                 context.startActivity(i);
             }
 
             if (x>width/2-100 && x <width/2+100 && y>height/2+100 && y<height/2+200) {
+                NeuronGameActivity.restore=true;
                 load=false;
                 android.content.Intent i = new android.content.Intent(context, NeuronGameActivity.class);
                 context.startActivity(i);

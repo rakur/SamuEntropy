@@ -247,17 +247,14 @@ public class NorbironSurfaceView extends android.view.SurfaceView implements Run
 
         this.context = context;
         nodes = new Nodes(this);
-        if (!load) {
-            nodeBoxes.clear();
-        //}
-        //if (nodeBoxes.size()==0) {
-            nodeBoxes.add((NeuronBox) nodes.get(6).clone());
-        }
-
-        else {
-            nodeBoxes.clear();
-            loadData(PreferenceManager.getDefaultSharedPreferences(context));
-        }
+            if (!NeuronGameActivity.restore) {
+                nodeBoxes.clear();
+                loadData(PreferenceManager.getDefaultSharedPreferences(context));
+            }
+            if (menu.load == false){
+                nodeBoxes.clear();
+                nodeBoxes.add((NeuronBox) nodes.get(6).clone());
+            }
 
 
 
@@ -272,7 +269,6 @@ public class NorbironSurfaceView extends android.view.SurfaceView implements Run
             nodeBoxes.add((NeuronBox) nodes.get(i).clone());
 
         }
-        saveData(PreferenceManager.getDefaultSharedPreferences(context).edit());
         surfaceHolder = getHolder();
         surfaceHolder.addCallback(new SurfaceEvents(this));
 
@@ -370,7 +366,7 @@ public class NorbironSurfaceView extends android.view.SurfaceView implements Run
     Runnable mLongPressed = new Runnable() {
         public void run() {
             nodeBoxes.remove(nbi);
-            saveData(PreferenceManager.getDefaultSharedPreferences(context).edit());
+
         }
     };
 
