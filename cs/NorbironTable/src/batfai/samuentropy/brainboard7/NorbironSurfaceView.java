@@ -365,6 +365,7 @@ public class NorbironSurfaceView extends android.view.SurfaceView implements Run
     final Handler handler = new Handler();
     Runnable mLongPressed = new Runnable() {
         public void run() {
+            if (nbi !=-1)
             nodeBoxes.remove(nbi);
 
         }
